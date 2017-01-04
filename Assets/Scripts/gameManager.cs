@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class gameManager : MonoBehaviour {
 
 	public Transform platformGenerator;
 	private Vector3 platformStartPoint;
+    
+    public Transform backgroundGenerator;
+    private Vector3 backgroundStartPoint;
+    private backgroundGenerator theBackgroundGenerator;
 
 	public playerContoller thePlayer;
 	private Vector3 playerStartPoint;
@@ -20,13 +24,19 @@ public class gameManager : MonoBehaviour {
 	
 		platformStartPoint = platformGenerator.position;
 		playerStartPoint = thePlayer.transform.position;
+        
+        backgroundStartPoint = backgroundGenerator.position;
 
 		theScoreManger = FindObjectOfType<scoreManager>();
+        
+        theBackgroundGenerator = FindObjectOfType<backgroundGenerator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	   if(transform.position.x == backgroundGenerator.postion.x){
+           theBackgroundGenerator.SpawnBackground(new Vector3 ());
+       }
 	}
 
 	public void RestartGame(){

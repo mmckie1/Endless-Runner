@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class platformGenerator : MonoBehaviour {
@@ -40,7 +40,7 @@ public class platformGenerator : MonoBehaviour {
 		minHeight = transform.position.y;
 		maxHeight = maxHeightPoint.position.y;
 
-		theCoinGenerator = FindObjectOfType<coinGenerator> ();
+		theCoinGenerator = FindObjectOfType<coinGenerator>();
 	
 	}
 	

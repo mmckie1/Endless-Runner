@@ -13,13 +13,15 @@ public class gameManager : MonoBehaviour {
 
 	private scoreManager theScoreManger;
 
+	public deathMenu theDeathMenu;
+
 	// Use this for initialization
 	void Start () {
 	
 		platformStartPoint = platformGenerator.position;
 		playerStartPoint = thePlayer.transform.position;
 
-		theScoreManger = FindObjectOfType<scoreManager> ();
+		theScoreManger = FindObjectOfType<scoreManager>();
 	}
 	
 	// Update is called once per frame
@@ -28,10 +30,33 @@ public class gameManager : MonoBehaviour {
 	}
 
 	public void RestartGame(){
-		StartCoroutine ("RestartGameCo");
+		//StartCoroutine ("RestartGameCo");
+		theScoreManger.scoreIncreasing = false;
+		thePlayer.gameObject.SetActive(false);
+
+		theDeathMenu.gameObject.SetActive(true);
+
 	}
 
-	public IEnumerator RestartGameCo(){
+	public void Reset(){
+
+		theDeathMenu.gameObject.SetActive(false);
+		platfromList = FindObjectsOfType<platformDestoryer> ();
+		for(int i=0; i<platfromList.Length; i++){
+			platfromList [i].gameObject.SetActive(false);
+		}
+
+		thePlayer.transform.position = playerStartPoint;
+		platformGenerator.position = platformStartPoint;
+		thePlayer.gameObject.SetActive(true);
+
+		theScoreManger.scoreCount = 0;
+		theScoreManger.scoreIncreasing = true;
+	
+	
+	}
+
+	/*public IEnumerator RestartGameCo(){
 		theScoreManger.scoreIncreasing = false;
 		thePlayer.gameObject.SetActive (false);
 		yield return new WaitForSeconds(0.5f);
@@ -47,5 +72,5 @@ public class gameManager : MonoBehaviour {
 
 		theScoreManger.scoreCount = 0;
 		theScoreManger.scoreIncreasing = true;
-	}
+	}*/
 }

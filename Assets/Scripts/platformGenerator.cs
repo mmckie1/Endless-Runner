@@ -12,7 +12,8 @@ public class platformGenerator : MonoBehaviour {
 	public float distanceBetweenhMin;
 	public float distanceBetweenMax;
 
-	public GameObject[] thePlatforms;
+	//public GameObject[] thePlatforms;
+	public objectPool[] theObjectPools;
 	private int platformSelector;
 	private float[] platformWidths;
 
@@ -23,19 +24,23 @@ public class platformGenerator : MonoBehaviour {
 	public float maxHeightChange;
 	private float heightChange;
 
+	private coinGenerator theCoinGenerator; 
+	public float randomCoinThreshold;
 
 	// Use this for initialization
 	void Start () {
 
 		//platformWidth = thePlatform.GetComponent<BoxCollider2D> ().size.x;
-		platformWidths = new float[thePlatforms.Length];
+		platformWidths = new float[theObjectPools.Length];
 
-		for (int i=0; i<thePlatforms.Length; i ++){
-			platformWidths[i] = thePlatforms [i].GetComponent<BoxCollider2D> ().size.x;
+		for (int i=0; i<theObjectPools.Length; i ++){
+			platformWidths[i] = theObjectPools[i].pooledObject.GetComponent<BoxCollider2D> ().size.x;
 		}
 
 		minHeight = transform.position.y;
 		maxHeight = maxHeightPoint.position.y;
+
+		theCoinGenerator = FindObjectOfType<coinGenerator> ();
 	
 	}
 	
@@ -46,7 +51,7 @@ public class platformGenerator : MonoBehaviour {
 
 			distanceBetween = Random.Range (distanceBetweenhMin, distanceBetweenMax);
 
-			platformSelector = Random.Range (0, thePlatforms.Length);
+			platformSelector = Random.Range (0, theObjectPools.Length);
 
 			heightChange = transform.position.y + Random.Range (maxHeightChange, -maxHeightChange);
 
@@ -57,10 +62,20 @@ public class platformGenerator : MonoBehaviour {
 				heightChange = minHeight;
 			}
 
-			transform.position = new Vector3 (transform.position.x + platformWidths[platformSelector] + distanceBetween, heightChange,transform.position.z);
+			transform.position = new Vector3 (transform.position.x + (platformWidths[platformSelector]/2) + distanceBetween, heightChange,transform.position.z);
 		
 
-			Instantiate (thePlatforms[platformSelector], transform.position, transform.rotation);
+			//Instantiate (thePlatforms[platformSelector], transform.position, transform.rotation);
+			GameObject newPlatform = theObjectPools[platformSelector].GetPooledObject();
+			newPlatform.transform.position = transform.position;
+			newPlatform.transform.rotation = transform.rotation;
+			newPlatform.SetActive(true);
+
+			if (Random.Range (0f, 100f) < randomCoinThreshold) {
+
+				theCoinGenerator.SpawnCoin (new Vector3 (transform.position.x, transform.position.y + 1f, transform.position.z));
+			}
+			transform.position = new Vector3 (transform.position.x + (platformWidths[platformSelector]/2), heightChange,transform.position.z);
 
 
 		}

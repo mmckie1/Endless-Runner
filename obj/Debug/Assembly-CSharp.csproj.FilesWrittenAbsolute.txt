@@ -1,0 +1,17 @@
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/obj/Debug/Assembly-CSharp.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/UnityEngine.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/UnityEditor.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Mono.Cecil.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Unity.DataContract.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/mmckie/Desktop/Morgan/Personal/Wine Spectator/Endless Runner/Temp/bin/Debug/Mono.Cecil.Mdb.dll

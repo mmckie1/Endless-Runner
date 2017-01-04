@@ -11,11 +11,15 @@ public class gameManager : MonoBehaviour {
 
 	private platformDestoryer[] platfromList;
 
+	private scoreManager theScoreManger;
+
 	// Use this for initialization
 	void Start () {
 	
 		platformStartPoint = platformGenerator.position;
 		playerStartPoint = thePlayer.transform.position;
+
+		theScoreManger = FindObjectOfType<scoreManager> ();
 	}
 	
 	// Update is called once per frame
@@ -28,6 +32,7 @@ public class gameManager : MonoBehaviour {
 	}
 
 	public IEnumerator RestartGameCo(){
+		theScoreManger.scoreIncreasing = false;
 		thePlayer.gameObject.SetActive (false);
 		yield return new WaitForSeconds(0.5f);
 
@@ -39,5 +44,8 @@ public class gameManager : MonoBehaviour {
 		thePlayer.transform.position = playerStartPoint;
 		platformGenerator.position = platformStartPoint;
 		thePlayer.gameObject.SetActive (true);
+
+		theScoreManger.scoreCount = 0;
+		theScoreManger.scoreIncreasing = true;
 	}
 }

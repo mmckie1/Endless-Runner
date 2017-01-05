@@ -9,7 +9,7 @@ public class backgroundGenerator : MonoBehaviour {
     public void SpawnBackground (Vector3 startPosition){
         
         GameObject background = backgroundPool.GetPooledObject();
-        background.transform.position = startPositon;
+        background.transform.position = startPosition;
         background.SetActive(true);
         
     }

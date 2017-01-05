@@ -15,16 +15,17 @@ public class gameManager : MonoBehaviour {
 	private scoreManager theScoreManger;
 
 	public deathMenu theDeathMenu;
+    private AudioSource backgroundSound;
 
 	// Use this for initialization
 	void Start () {
 	
 		platformStartPoint = platformGenerator.position;
 		playerStartPoint = thePlayer.transform.position;
-        
-        
 
 		theScoreManger = FindObjectOfType<scoreManager>();
+        
+        backgroundSound = GameObject.Find ("BackgroundSound").GetComponent<AudioSource>();
         
 	}
 	
@@ -57,6 +58,8 @@ public class gameManager : MonoBehaviour {
 
 		theScoreManger.scoreCount = 0;
 		theScoreManger.scoreIncreasing = true;
+        
+        backgroundSound.Play();
 	
 	
 	}

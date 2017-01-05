@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +7,15 @@ public class coinCollector : MonoBehaviour {
 	public int scoreToGive;
 
 	private scoreManager theScoreManager;
+    
+    private AudioSource coinSound;
 
 	// Use this for initialization
 	void Start () {
 
 		theScoreManager = FindObjectOfType<scoreManager> ();
-
+        
+        coinSound = GameObject.Find ("CoinSound").GetComponent<AudioSource>();
 		
 	}
 	
@@ -25,6 +28,9 @@ public class coinCollector : MonoBehaviour {
 		if(other.gameObject.name == "Player"){
 			theScoreManager.AddScore(scoreToGive);
 			gameObject.SetActive (false);
+            
+            coinSound.Play();
+        
 		}
 	}
 }

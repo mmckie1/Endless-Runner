@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class playerContoller : MonoBehaviour {
@@ -19,6 +19,10 @@ public class playerContoller : MonoBehaviour {
 	private Animator myAnimator;
 
 	public gameManager theGameManager;
+    
+    public AudioSource jumpSound;
+    public AudioSource deathSound;
+    public AudioSource backgroundSound;
 
 	// Use this for initialization
 	void Start () {
@@ -44,6 +48,7 @@ public class playerContoller : MonoBehaviour {
 
 			if (grounded) {
 				myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, jumpForce);
+                jumpSound.Play();
 			}
 		}
 
@@ -72,6 +77,8 @@ public class playerContoller : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other) {
 		if(other.gameObject.tag == "killbox"){
 			theGameManager.RestartGame();
+            deathSound.Play();
+            backgroundSound.Stop();
 		}
 	}
 }
